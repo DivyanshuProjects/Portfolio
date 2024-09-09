@@ -13,9 +13,11 @@ body {
 #header {
     width: 100%;
     height: 100vh;
-    background-image: url(bg.jpg);
+    background-image: url(bg.jpg); /* Ensure this is the correct path */
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Prevents it from scrolling away */
 }
 
 .container {
@@ -64,13 +66,12 @@ nav ul li a:hover::after {
 .header-text {
     margin-top: 20%;
     font-size: 30px;
-    text-align: center;
+    text-align: center; /* Aligning text to the center */
 }
 
 .header-text h1 {
     font-size: 60px;
     margin-top: 20px;
-    text-align: center;
 }
 
 .header-text h1 span {
@@ -79,7 +80,7 @@ nav ul li a:hover::after {
 
 /* ----------ABOUT---------- */
 #about {
-    padding: 80px 0;
+    padding: 80px 0px;
     color: #ababab;
 }
 
@@ -295,23 +296,21 @@ nav .fas {
 
 /* ----------CSS FOR SMALL SCREEN---------- */
 @media only screen and (max-width: 768px) {
+    #header {
+        background-image: url(bg.jpg); /* Use a smaller version of your background for mobile */
+        background-size: cover;
+        background-position: center;
+        background-attachment: scroll;
+    }
+
     .header-text {
-        margin-top: 50%;
-        font-size: 24px;
+        margin-top: 30%;
+        font-size: 20px;
+        text-align: center;
     }
 
     .header-text h1 {
-        font-size: 48px;
-    }
-
-    .about-col-1,
-    .about-col-2 {
-        flex-basis: 100%;
-        margin-bottom: 20px;
-    }
-
-    .sub-title {
-        font-size: 36px;
+        font-size: 40px;
     }
 
     nav .fas {
@@ -320,64 +319,23 @@ nav .fas {
     }
 
     nav ul {
-        display: none;
+        background: #b54768;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        transform: translateX(200px);
+        transition: transform 0.3s ease-in-out;
     }
 
     nav ul.show {
-        display: block;
-        position: fixed;
-        right: 0;
-        top: 0;
-        background: #b54768;
-        width: 250px;
-        height: 100vh;
-        padding-top: 50px;
+        transform: translateX(0);
     }
 
     nav ul li {
         display: block;
         margin: 25px;
-        text-align: center;
-    }
-
-    nav ul li a {
-        font-size: 20px;
-    }
-
-    #header {
-        background-position: center;
-    }
-}
-
-/* Extra Small Screens */
-@media only screen and (max-width: 480px) {
-    .header-text {
-        margin-top: 70%;
-        font-size: 20px;
-    }
-
-    .header-text h1 {
-        font-size: 36px;
-    }
-
-    nav ul.show {
-        width: 200px;
-    }
-
-    .services-list {
-        grid-template-columns: 1fr;
-    }
-
-    .services-list div {
-        padding: 30px;
-    }
-
-    .about-col-1,
-    .about-col-2 {
-        flex-basis: 100%;
-    }
-
-    .sub-title {
-        font-size: 28px;
     }
 }
