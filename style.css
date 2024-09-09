@@ -10,7 +10,6 @@ body {
     color: #fff;
 }
 
-
 #header {
     width: 100%;
     height: 100vh;
@@ -21,10 +20,7 @@ body {
 
 .container {
     padding: 10px 10%;
-    
 }
-
-
 
 nav {
     display: flex;
@@ -34,7 +30,7 @@ nav {
 }
 
 .logo {
-    width:300px;
+    width: 300px;
 }
 
 nav ul li {
@@ -68,21 +64,22 @@ nav ul li a:hover::after {
 .header-text {
     margin-top: 20%;
     font-size: 30px;
+    text-align: center;
 }
 
 .header-text h1 {
     font-size: 60px;
     margin-top: 20px;
+    text-align: center;
 }
 
 .header-text h1 span {
     color: #ff004f;
 }
 
-
 /* ----------ABOUT---------- */
 #about {
-    padding: 80px 0px;
+    padding: 80px 0;
     color: #ababab;
 }
 
@@ -135,9 +132,6 @@ nav ul li a:hover::after {
     transition: 0.5s;
 }
 
-/* .tab-links:hover::after{
-width: 100%;
-} */
 .tab-links.active-link::after {
     width: 50%;
 }
@@ -165,7 +159,6 @@ width: 100%;
     padding: 30px 0;
 }
 
-
 .services-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -177,7 +170,7 @@ width: 100%;
     background: #262626;
     padding: 40px;
     font-size: 15px;
-    line-height: 30 px;
+    line-height: 30px;
     font-weight: 300;
     border-radius: 10px;
     transition: background 0.5s, transform 0.5s;
@@ -206,8 +199,6 @@ width: 100%;
     background: #ff004f;
     transform: translateY(-10px);
 }
-
-
 
 /* ----------CONTACT---------- */
 .contact-left {
@@ -249,7 +240,6 @@ width: 100%;
 .btn.btn2 {
     color: red;
     display: inline-block;
-    /* background: #080808; */
     margin-top: 30px;
     transition: background 0.5;
 }
@@ -258,7 +248,6 @@ width: 100%;
     background: #080808;
     margin-top: 30px;
     transition: background 0.5;
-
 }
 
 .btn.btn3:hover {
@@ -305,18 +294,24 @@ nav .fas {
 }
 
 /* ----------CSS FOR SMALL SCREEN---------- */
-@media only screen and (max-width: 600px) {
-    #header {
-        background-image: url(images/phone-background.png);
-    }
-
+@media only screen and (max-width: 768px) {
     .header-text {
-        margin-top: 100%;
-        font-size: 16px;
+        margin-top: 50%;
+        font-size: 24px;
     }
 
     .header-text h1 {
-        font-size: 30px;
+        font-size: 48px;
+    }
+
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+        margin-bottom: 20px;
+    }
+
+    .sub-title {
+        font-size: 36px;
     }
 
     nav .fas {
@@ -324,72 +319,65 @@ nav .fas {
         font-size: 25px;
     }
 
-    nav ul {
-        background: #b54768;
-        position: fixed;
-        top: 0;
-        width: 200;
-        right: 0;
-        height: 100vh;
-        padding-top: 50px;
-    }
-
-    nav ul li {
-        display: block;
-        margin: 25px;
-    }
-
-}
-
-/* ----------CSS FOR SMALL SCREEN---------- */
-@media only screen and (max-width: 600px) {
-
-    /* Adjust the header image and text size for small screens */
-    #header {
-        background-image: url(images/phone-background.png);
-    }
-
-    .header-text {
-        margin-top: 100%;
-        font-size: 16px;
-    }
-
-    .header-text h1 {
-        font-size: 30px;
-    }
-
-    /* Show the navigation menu on small screens */
     nav ul {
         display: none;
     }
 
-    nav .fas {
+    nav ul.show {
         display: block;
-        font-size: 25px;
-    }
-
-    nav ul {
-        background: #b54768;
         position: fixed;
-        top: 0;
-        width: 200px;
-        /* Increased the width to accommodate the menu items */
         right: 0;
+        top: 0;
+        background: #b54768;
+        width: 250px;
         height: 100vh;
         padding-top: 50px;
-        transform: translateX(200px);
-        /* Off-canvas menu, initially hidden */
-        transition: transform 0.3s ease-in-out;
-    }
-
-    nav ul.show {
-        transform: translateX(0);
-        /* Show the menu when 'show' class is applied */
     }
 
     nav ul li {
         display: block;
         margin: 25px;
+        text-align: center;
+    }
+
+    nav ul li a {
+        font-size: 20px;
+    }
+
+    #header {
+        background-position: center;
     }
 }
 
+/* Extra Small Screens */
+@media only screen and (max-width: 480px) {
+    .header-text {
+        margin-top: 70%;
+        font-size: 20px;
+    }
+
+    .header-text h1 {
+        font-size: 36px;
+    }
+
+    nav ul.show {
+        width: 200px;
+    }
+
+    .services-list {
+        grid-template-columns: 1fr;
+    }
+
+    .services-list div {
+        padding: 30px;
+    }
+
+    .about-col-1,
+    .about-col-2 {
+        flex-basis: 100%;
+    }
+
+    .sub-title {
+        font-size: 28px;
+    }
+}
